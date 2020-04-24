@@ -11,6 +11,9 @@ const RamenDto = sequelize.define(
     name: {
       type: Sequelize.STRING(45)
     },
+    restaurant: {
+      type: Sequelize.STRING(45)
+    },
     soupRate: {
       type: Sequelize.DOUBLE
     },
@@ -53,6 +56,12 @@ const RamenDto = sequelize.define(
     cpValueFeedback: {
       type: Sequelize.STRING(100)
     },
+    BBQPorkRiceRate: {
+      type: Sequelize.DOUBLE
+    },
+    BBQPorkRiceFeedback: {
+      type: Sequelize.STRING(100)
+    },
     overallRate: {
       type: Sequelize.DOUBLE
     },
@@ -66,6 +75,12 @@ const RamenDto = sequelize.define(
       type: Sequelize.STRING(45),
     },
     imgSrc3: {
+      type: Sequelize.STRING(45),
+    },
+    imgSrc4: {
+      type: Sequelize.STRING(45),
+    },
+    imgSrc5: {
       type: Sequelize.STRING(45),
     }
   },
