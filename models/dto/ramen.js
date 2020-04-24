@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../services/sequelize');
-const LamianDto = sequelize.define(
-  'lamian', 
+const RamenDto = sequelize.define(
+  'ramen', 
   {
     id: {
       type: Sequelize.INTEGER,
@@ -70,7 +70,7 @@ const LamianDto = sequelize.define(
     }
   },
   {
-    tableName: 'lamian'
+    tableName: 'ramen'
   }
 );
-module.exports = LamianDto;
+module.exports = RamenDto;

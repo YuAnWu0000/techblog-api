@@ -37,7 +37,6 @@ app.use(session({
 
 fs.readdirSync('./routes').forEach(fileName => {
   fileName = fileName.replace('.js','');
-  console.log('/' +fileName);
   app.use('/' +fileName , require('./routes/'+ fileName + '.js'));
 });
 
