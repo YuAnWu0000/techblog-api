@@ -43,16 +43,22 @@ fs.readdirSync('./routes').forEach(fileName => {
 // 若執行環境為local, 則開啟https連線並使用自簽金鑰
 if (process.env.SERVER_ENV === 'local') {
   // https連線預設PORT為443, http為80
-  const port = process.env.SERVER_PORT || 443;
-  const server = https.createServer({
-    key: SSLKey,
-    cert: SSLCert
-  }, app);
+  // const port = process.env.SERVER_PORT || 443;
+  // const server = https.createServer({
+  //   key: SSLKey,
+  //   cert: SSLCert
+  // }, app);
 
-  server.listen(port, function() {
+  // server.listen(port, function() {
+  //   const host = server.address().address;
+  //   const port = server.address().port;
+  //   console.log(`Server start listening https://${host}:${port}/`);
+  // });
+  const port = process.env.SERVER_PORT || 80;
+  const server = app.listen(port, function () {
     const host = server.address().address;
     const port = server.address().port;
-    console.log(`Server start listening https://${host}:${port}/`);
+    console.log(`Server start listening http://${host}:${port}/`);
   });
 } else {
   const port = process.env.SERVER_PORT || 80;
