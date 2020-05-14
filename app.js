@@ -8,6 +8,7 @@ const fs = require('fs');
 const https = require('https');
 const SSLKey = fs.readFileSync('./Cert/server.key');
 const SSLCert = fs.readFileSync('./Cert/server.pem');
+const extensions = require('./extensions');
 
 const app = express();
 dotenv.config();
