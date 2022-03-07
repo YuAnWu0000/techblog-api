@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const https = require('https');
-const SSLKey = fs.readFileSync('./Cert/server.key');
-const SSLCert = fs.readFileSync('./Cert/server.pem');
+const SSLKey = fs.readFileSync('./cert/server.key');
+const SSLCert = fs.readFileSync('./cert/server.pem');
 const extensions = require('./extensions');
 
 const app = express();
@@ -21,7 +21,9 @@ app.use(cors({
   credentials: true // enable set cookie
 }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.set('trust proxy', 1);
 app.use(session({
@@ -37,8 +39,8 @@ app.use(session({
 }));
 
 fs.readdirSync('./routes').forEach(fileName => {
-  fileName = fileName.replace('.js','');
-  app.use('/' +fileName , require('./routes/'+ fileName + '.js'));
+  fileName = fileName.replace('.js', '');
+  app.use('/' + fileName, require('./routes/' + fileName + '.js'));
 });
 
 // 若執行環境為local, 則開啟https連線並使用自簽金鑰
@@ -69,4 +71,3 @@ if (process.env.SERVER_ENV === 'local') {
     console.log(`Server start listening http://${host}:${port}/`);
   });
 }
-
