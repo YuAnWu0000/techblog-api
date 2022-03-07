@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// 深度遍歷/Models/MerchantAPI路徑下所有模組
+// 深度遍歷/models/validate路徑下所有模組
 function readFileRecursively(path, fileName) {
   fs.stat(path, (err, statObj) => {
     if (statObj.isDirectory()) {
