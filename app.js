@@ -16,6 +16,7 @@ dotenv.config();
 app.use(cors({
   origin: [
     'http://localhost:8080',
+    'http://blog.zachary.tw',
   ],
   methods: ['GET', 'POST'],
   credentials: true // enable set cookie
