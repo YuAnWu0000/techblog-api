@@ -15,7 +15,8 @@ dotenv.config();
 
 app.use(cors({
   origin: [
-    'http://localhost:8080',
+    // 'http://localhost:8080',
+    'http://test.blog.zachary.tw',
     'http://blog.zachary.tw',
   ],
   methods: ['GET', 'POST'],
